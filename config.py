@@ -21,7 +21,7 @@ ddns_domain = "ddns.bind.domain"
 last_update_ip_path = "~/updated_ddns_ip.txt"
 
 server_command = [
-    'docker', 'exec', '-i', 'bind', '/etc/init.d/named', 'reload', ddns_domain
+    '/bin/bash', '-c', f"docker exec -i bind /etc/init.d/named restart {ddns_domain}"
 ]
 
 ddns_config_template = """
